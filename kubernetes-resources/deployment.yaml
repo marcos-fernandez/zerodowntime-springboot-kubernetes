@@ -24,6 +24,7 @@ spec:
             httpGet:
               port: 8080
               path: /actuator/health/readiness
+            timeoutSeconds: 5
             periodSeconds: 10
             successThreshold: 1
             failureThreshold: 5
@@ -31,6 +32,7 @@ spec:
             httpGet:
               port: 8080
               path: /actuator/health/liveness
+            timeoutSeconds: 5
             periodSeconds: 10
             successThreshold: 1
             failureThreshold: 3
@@ -38,6 +40,7 @@ spec:
             httpGet:
               port: 8080
               path: /actuator/health/readiness
+            timeoutSeconds: 5
             periodSeconds: 10
             successThreshold: 1
             failureThreshold: 5
