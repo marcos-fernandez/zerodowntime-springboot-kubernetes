@@ -10,7 +10,7 @@ spec:
   template:
     metadata:
       annotations:
-        automatically-roll-deployments: x
+        automatically-roll-deployments: xx
       labels:
         app: zerodowntime-app
     spec:
@@ -20,3 +20,13 @@ spec:
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8080
+          readinessProbe:
+            httpGet:
+              port: 8080
+              path: /actuator/health/liveness
+            failureThreshold: 3
+          livenessProbe:
+            httpGet:
+              port: 8080
+              path: /actuator/health/readiness
+            failureThreshold: 5
