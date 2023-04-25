@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: zerodowntime-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: zerodowntime-app
+  template:
+    metadata:
+      annotations:
+        automatically-roll-deployments: x
+      labels:
+        app: zerodowntime-app
+    spec:
+      containers:
+        - name: zerodowntime-app
+          image: zerodowntime:0.0.1
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8080
