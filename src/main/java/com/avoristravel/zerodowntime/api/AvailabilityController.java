@@ -13,7 +13,7 @@ public class AvailabilityController {
         this.slowService = slowService;
     }
 
-    @PostMapping("/api/availaiblity")
+    @PostMapping("/api/availability")
     public String availaiblity() {
         return slowService.search();
     }
