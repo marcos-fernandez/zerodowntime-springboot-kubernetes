@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class AvailabilityController {
 
-    private SlowService slowService;
+    private final SlowService slowService;
 
     public AvailabilityController(SlowService slowService) {
         this.slowService = slowService;

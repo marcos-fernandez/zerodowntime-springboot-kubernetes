@@ -7,11 +7,11 @@ import java.util.Random;
 @Service
 public class SlowService {
 
-    private final Random random = new Random();
+    private static final Random RANDOM = new Random();
 
     public String search() {
         try {
-            long millis = random.nextLong(100, 3000);
+            long millis = RANDOM.nextLong(100, 3000);
             System.out.printf("complex calculation duration: %d%n", millis);
             Thread.sleep(millis);
         } catch (InterruptedException e) {
